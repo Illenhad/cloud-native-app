@@ -25,7 +25,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: Build and push
+        name: Build and push web
         uses: docker/build-push-action@v3
         with:
           context: web
@@ -33,7 +33,7 @@ jobs:
           tags: user/app:latest
           file: "web/Dockerfile"
       -
-        name: Build and push
+        name: Build and push db
         uses: docker/build-push-action@v3
         with:
           context: db
@@ -41,7 +41,7 @@ jobs:
           tags: user/app:latest
           file: "db/Dockerfile"
       -
-        name: Build and push
+        name: Build and push words
         uses: docker/build-push-action@v3
         with:
           context: words
