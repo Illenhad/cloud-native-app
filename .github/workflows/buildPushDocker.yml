@@ -28,7 +28,23 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: .
+          context: web
           push: true
           tags: user/app:latest
-          file: "{context}/web/Dockerfile"
+          file: "web/Dockerfile"
+      -
+        name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          context: db
+          push: true
+          tags: user/app:latest
+          file: "db/Dockerfile"
+      -
+        name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          context: words
+          push: true
+          tags: user/app:latest
+          file: "words/Dockerfile"
