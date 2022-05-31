@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - 'main'
+    paths:
+      - 'web'
 
 jobs:
   docker:
@@ -32,19 +34,3 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/cloud-native-web:latest
           file: "web/Dockerfile"
-      -
-        name: Build and push db
-        uses: docker/build-push-action@v3
-        with:
-          context: db
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/cloud-native-db:latest
-          file: "db/Dockerfile"
-      -
-        name: Build and push words
-        uses: docker/build-push-action@v3
-        with:
-          context: words
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/cloud-native-api:latest
-          file: "words/Dockerfile"
