@@ -30,7 +30,7 @@ jobs:
         with:
           context: web
           push: true
-          tags: user/app:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/cloud-native-web:latest
           file: "web/Dockerfile"
       -
         name: Build and push db
@@ -38,7 +38,7 @@ jobs:
         with:
           context: db
           push: true
-          tags: user/app:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/cloud-native-db:latest
           file: "db/Dockerfile"
       -
         name: Build and push words
@@ -46,5 +46,5 @@ jobs:
         with:
           context: words
           push: true
-          tags: user/app:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/cloud-native-api:latest
           file: "words/Dockerfile"
