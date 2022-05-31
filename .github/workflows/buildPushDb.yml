@@ -1,4 +1,4 @@
-name: Build and Push
+name: Build and Push DB
 
 on:
   push:
@@ -27,7 +27,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: Build and push web
+        name: Build and push DB
         uses: docker/build-push-action@v3
         with:
           context: db
